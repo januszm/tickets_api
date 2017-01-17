@@ -29,6 +29,8 @@ gem 'puma', '~> 3.0'
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development do
