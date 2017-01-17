@@ -23,6 +23,7 @@ gem 'puma', '~> 3.0'
 # gem 'capistrano-rails', group: :development
 
 # API
+gem 'rack-cors'
 gem 'active_model_serializers'
 
 group :development, :test do
