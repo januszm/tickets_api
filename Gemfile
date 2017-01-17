@@ -25,6 +25,7 @@ gem 'puma', '~> 3.0'
 # API
 gem 'rack-cors'
 gem 'active_model_serializers'
+gem 'jwt'
 
 group :development, :test do
   gem 'pry-byebug'
