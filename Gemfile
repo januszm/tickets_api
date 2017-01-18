@@ -25,7 +25,7 @@ gem 'bcrypt', '~> 3.1.7'
 # API
 gem 'rack-cors'
 gem 'active_model_serializers'
-gem 'jwt'
+gem 'knock'
 
 group :development, :test do
   gem 'pry-byebug'

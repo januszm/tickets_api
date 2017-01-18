@@ -70,6 +70,10 @@ GEM
     jsonapi-parser (0.1.1.beta3)
     jsonapi-renderer (0.1.1.beta1)
     jwt (1.5.6)
+    knock (2.0)
+      bcrypt (~> 3.1)
+      jwt (~> 1.5)
+      rails (>= 4.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -172,7 +176,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   factory_girl_rails
   faker
-  jwt
+  knock
   listen (~> 3.0.5)
   mysql2 (>= 0.3.18, < 0.5)
   pry-byebug
