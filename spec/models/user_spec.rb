@@ -7,4 +7,9 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_attributes(last_name: 'Doe') }
   end
 
+  describe '#full_name' do
+    let(:user) { build(:user) }
+    it { expect(user.full_name).to eq "#{user.first_name} #{user.last_name}" }
+  end
+
 end
