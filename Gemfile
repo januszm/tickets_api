@@ -27,6 +27,9 @@ gem 'rack-cors'
 gem 'active_model_serializers'
 gem 'knock'
 
+# Authorization
+gem 'pundit'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'

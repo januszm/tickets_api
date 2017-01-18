@@ -12,4 +12,11 @@ RSpec.describe User, type: :model do
     it { expect(user.full_name).to eq "#{user.first_name} #{user.last_name}" }
   end
 
+  describe '#admin?' do
+    let(:user) { build(:user) }
+    let(:admin) { build(:user, :admin) }
+    it { expect(user.admin?).to be false }
+    it { expect(admin.admin?).to be true }
+  end
+
 end
