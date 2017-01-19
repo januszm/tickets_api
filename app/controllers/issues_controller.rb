@@ -1,6 +1,11 @@
 class IssuesController < ApplicationController
   before_action :set_issue, only: [:show, :update, :destroy]
 
+  # POST /issues/assign
+  def assign
+    AssignAgentToIssue.new(params[:id], params[:agent_id]).call
+  end
+
   # GET /issues
   def index
     @issues = Issue.all

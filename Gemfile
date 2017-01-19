@@ -30,6 +30,8 @@ gem 'knock'
 # Authorization
 gem 'pundit'
 
+gem 'aasm'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'

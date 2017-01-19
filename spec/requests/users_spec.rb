@@ -4,11 +4,6 @@ RSpec.describe 'Users', type: :request do
   let(:user) { create(:user) }
   let(:admin) { create(:user, :admin) }
 
-  def authenticated_header_for(user)
-    token = Knock::AuthToken.new(payload: { sub: user.id }).token
-    { 'Authorization': "Bearer #{token}" }
-  end
-
   context 'for authenticated user' do
     it 'responds successfully for admin' do
       get users_url, headers: authenticated_header_for(admin)
