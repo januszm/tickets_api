@@ -9,8 +9,11 @@ class Issue < ApplicationRecord
     state :assigned
     state :closed
 
-    event :next_step do
-      transitions from: :opened, to: :assigned
+    event :set_assigned do
+      transitions from: [:opened, :assigned], to: :assigned
+    end
+
+    event :finalize do
       transitions from: :assigned, to: :closed
     end
 
