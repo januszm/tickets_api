@@ -55,6 +55,9 @@ class IssuesController < ApplicationController
     end
 
     def issue_params
-      params.require(:issue).permit(policy(Issue).permitted_attributes)
+      ActiveModelSerializers::Deserialization.jsonapi_parse(
+        params,
+        only: policy(Issue).permitted_attributes
+      )
     end
 end
