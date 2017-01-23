@@ -25,7 +25,7 @@ class IssuePolicy < ApplicationPolicy
   end
 
   def destroy?
-    @user.admin?
+    @user.id == @record.creator_id || @user.admin?
   end
 
   def permitted_attributes
