@@ -2,6 +2,8 @@ class Issue < ApplicationRecord
   belongs_to :creator, class_name: 'User'
   belongs_to :assignee, class_name: 'User', optional: true
 
+  validates_presence_of :title
+
   include AASM
 
   aasm column: 'status' do
