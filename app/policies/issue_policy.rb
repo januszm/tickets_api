@@ -17,7 +17,7 @@ class IssuePolicy < ApplicationPolicy
   end
 
   def update?
-    create?
+    [@record.creator_id, @record.assignee_id].include?(@user.id) || @user.admin?
   end
 
   def edit?
@@ -32,6 +32,7 @@ class IssuePolicy < ApplicationPolicy
     return [
       :title,
       :description,
+      :creator_id,
       :assignee_id,
     ]
   end
