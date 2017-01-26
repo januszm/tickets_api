@@ -4,6 +4,10 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    @user.admin?
+  end
+
   def show?
     scope.where(id: record.id).exists?# && (@user.id == @record.id || @user.admin?)
   end

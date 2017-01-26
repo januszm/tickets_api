@@ -6,13 +6,13 @@ RSpec.describe UserPolicy do
 
   subject { described_class }
 
-  permissions :index? do
+  permissions :update? do
     it 'denies access if user is not an admin' do
-      expect(subject).not_to permit(user, User.all)
+      expect(subject).not_to permit(user, User.last)
     end
 
     it 'grants access if user is an admin' do
-      expect(subject).to permit(admin, User.all)
+      expect(subject).to permit(admin, User.last)
     end
   end
 

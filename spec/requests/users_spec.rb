@@ -5,14 +5,19 @@ RSpec.describe 'Users', type: :request do
   let(:admin) { create(:user, :admin) }
 
   context 'for authenticated user' do
+    it 'responds successfully' do
+      get users_url, headers: authenticated_header_for(user)
+      assert_response :success
+    end
+
     it 'responds successfully for admin' do
-      get users_url, headers: authenticated_header_for(admin)
+      patch user_url(user), params: { user: { first_name: 'Bob' } }, headers: authenticated_header_for(admin)
       assert_response :success
     end
 
     it 'raises error for non-admin' do
       expect {
-        get users_url, headers: authenticated_header_for(user)
+        patch user_url(admin), params: { user: { first_name: 'Bob' } }, headers: authenticated_header_for(user)
       }.to raise_error Pundit::NotAuthorizedError
     end
   end
