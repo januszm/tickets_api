@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :issues do
     collection do
       post 'assign'
+      post 'finalize'
     end
   end
   resources :users

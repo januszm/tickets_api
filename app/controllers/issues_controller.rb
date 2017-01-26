@@ -6,6 +6,11 @@ class IssuesController < ApplicationController
     AssignAgentToIssue.new(params[:id], params[:agent_id]).call
   end
 
+  # POST /issues/finalize
+  def finalize
+    FinalizeIssue.new(params[:id]).call
+  end
+
   # GET /issues
   def index
     @issues = Issue.all
