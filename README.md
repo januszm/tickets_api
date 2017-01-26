@@ -1,24 +1,23 @@
-# README
+# tickets-api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+REST API to create, view and manage support requests.
 
-Things you may want to cover:
+* Ruby/Rails version
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
+Ruby 2.3 + Rails 5
 
 * Database creation
 
-* Database initialization
+Standard Ruby on Rails procedures:
+
+```
+rails db:create; rails db:migrate; rails db:seed
+```
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+```rake```
 
-* Deployment instructions
+* Services and Jobs
 
-* ...
+There are two services other than standard CRUD actions: Assign User to Issue and Finalize Issue. There are no background jobs since the API does not perform any long running tasks nor doesn't integrate with external services
