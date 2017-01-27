@@ -1,5 +1,13 @@
 class IssuePolicy < ApplicationPolicy
 
+  def assign?
+    @user.support_agent? || @user.admin?
+  end
+
+  def finalize
+    assign?
+  end
+
   def index?
     @user.id
   end

@@ -6,13 +6,10 @@ describe AssignAgentToIssue, type: :service do
   let(:agent) { create(:user) }
 
   describe 'call' do
-    let(:params) do
-      { id: issue.id, agent_id: agent.id }
-    end
 
     it 'assigns support agent to issue' do
       initial_status = issue.status
-      result = AssignAgentToIssue.new(params[:id], params[:agent_id]).call
+      result = AssignAgentToIssue.new(issue, agent.id).call
       issue.reload
       expect(result).to be true
       expect(issue.assignee).to eq agent

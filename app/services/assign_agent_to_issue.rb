@@ -1,7 +1,7 @@
 class AssignAgentToIssue
 
-  def initialize(issue_id, agent_id)
-    @issue = Issue.find(issue_id)
+  def initialize(issue, agent_id)
+    @issue = issue
     @agent = User.find(agent_id)
   end
 

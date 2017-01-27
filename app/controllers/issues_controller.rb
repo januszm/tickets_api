@@ -1,14 +1,16 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:show, :update, :destroy]
+  before_action :set_issue, only: [:show, :update, :destroy, :assign, :finalize]
 
   # POST /issues/assign
   def assign
-    AssignAgentToIssue.new(params[:id], params[:agent_id]).call
+    authorize @issue
+    AssignAgentToIssue.new(@issue, params[:agent_id]).call
   end
 
   # POST /issues/finalize
   def finalize
-    FinalizeIssue.new(params[:id]).call
+    authorize @issue
+    FinalizeIssue.new(@issue).call
   end
 
   # GET /issues

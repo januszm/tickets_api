@@ -19,6 +19,7 @@ class UserPolicy < ApplicationPolicy
       :email,
       :password,
       :password_confirmation,
+      :support_agent,
     ]
   end
 

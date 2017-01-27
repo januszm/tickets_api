@@ -1,7 +1,7 @@
 class FinalizeIssue
 
-  def initialize(issue_id)
-    @issue = Issue.find(issue_id)
+  def initialize(issue)
+    @issue = issue
   end
 
   def call
